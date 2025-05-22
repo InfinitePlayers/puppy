@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: 'Comic Neue', sans-serif;
+  background: #f0f0f0;
+  color: #333;
+}
+
+.main-grid {
+  display: flex;
+  height: 100vh;
+  max-width: 1920px;
+  margin: auto;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.left {
+  width: 30%;
+}
+
+.middle {
+  width: 40%;
+}
+
+.right {
+  width: 30%;
+  overflow-y: auto;
+}
+
+.block {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.block h2, .block h3 {
+  margin-top: 0;
+}
+
+.key {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.color-yellow { background: #fff59d; }
+.color-blue { background: #81d4fa; }
+.color-green { background: #a5d6a7; }
+.color-pink { background: #f8bbd0; }
+
+#timeline-wrapper {
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+}
+
+.timeline-row {
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+.timeline-row.current {
+  border: 2px solid black;
+}
+
+.timeline-row.past {
+  opacity: 0.5;
+}

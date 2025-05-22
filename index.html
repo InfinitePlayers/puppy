@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Puppy Planner</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap">
+</head>
+<body>
+  <div class="main-grid">
+    <!-- LEFT PANEL -->
+    <div class="column left">
+      <div id="now" class="block">
+        <h2>Now</h2>
+        <p class="activity" id="current-activity">Loading...</p>
+        <p class="time" id="current-range">--</p>
+        <p class="elapsed" id="stopwatch">Elapsed: --</p>
+        <div id="feeding-now"></div>
+      </div>
+      <div id="next" class="block">
+        <h2>Next</h2>
+        <p class="activity" id="next-activity">Loading...</p>
+        <p class="time" id="next-range">--</p>
+        <p class="countdown" id="countdown">Starts in: --</p>
+      </div>
+      <div class="block" id="color-key">
+        <h3>Energy Level</h3>
+        <p><span class="key color-yellow"></span> Potty</p>
+        <p><span class="key color-blue"></span> Feeding</p>
+        <p><span class="key color-green"></span> Play / Training</p>
+        <p><span class="key color-pink"></span> Nap / Bedtime</p>
+      </div>
+    </div>
+
+    <!-- MIDDLE PANEL -->
+    <div class="column middle">
+      <div class="block"><strong>Date:</strong> <span id="date-display">--</span></div>
+      <div class="block"><strong>Time:</strong> <span id="time-display">--</span></div>
+      <div class="block"><strong>Puppy's Age:</strong> <span id="age-display">-- days</span></div>
+      <div class="block">
+        <h2>Training Tip</h2>
+        <p id="training-tip">--</p>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="column right">
+      <div class="block">
+        <h3>Full Daily Timeline</h3>
+        <div id="timeline-wrapper"><div id="timeline"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="schedule.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
