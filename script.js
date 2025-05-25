@@ -1,3 +1,4 @@
+
 function formatTime(date) {
   return `${String(date.getHours()).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}`;
 }
@@ -22,6 +23,11 @@ function getTimeDiff(start, end) {
   const mins = Math.floor((diff % 3600) / 60);
   const secs = diff % 60;
   return hours > 0 ? `${hours}h ${mins}m` : `${mins}m ${secs}s`;
+}
+
+function getFeedingNowHTML(weight) {
+  const grams = (weight * 30).toFixed(0);
+  return `<p><strong>Feeding Tip:</strong> Approx. ${grams}g meal</p>`;
 }
 
 function updateSchedule() {
@@ -66,16 +72,19 @@ function updateSchedule() {
   `;
 
   const weight = 2.9;
-  const feedingTimes = [
-    "06:30", "06:45", "07:00",
-    "12:30", "12:45", "13:00",
-    "17:30", "18:00"
-  ];
+  const feedingTimes = ["06:30", "06:45", "07:00", "12:30", "12:45", "13:00", "17:30", "18:00"];
   document.getElementById("feeding-now").innerHTML = feedingTimes.includes(current.time) ? getFeedingNowHTML(weight) : "";
 
   const timeline = document.getElementById("timeline");
+  if (!timeline) {
+    console.warn("Timeline container not found");
+    return;
+  }
+
   timeline.innerHTML = "";
   let scrollTo = null;
+
+  console.log("Building timeline. Schedule length:", schedule.length);
 
   schedule.forEach(item => {
     const row = document.createElement("div");
@@ -97,11 +106,6 @@ function updateSchedule() {
     timelineWrapper.scrollTo({ top: targetY, behavior: "smooth" });
   }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  updateSchedule();
-  setInterval(updateSchedule, 1000);
-});
 
 document.addEventListener("DOMContentLoaded", () => {
   updateSchedule();
